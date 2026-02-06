@@ -34,6 +34,7 @@ abstract class Cpt extends Base {
 	 * @return void
 	 */
 	public function add_cpt() {
+		$this->setup_cpt_args();
 		register_post_type(
 			$this->_get_cpt_key(),
 			$this->cpt_args
@@ -46,7 +47,6 @@ abstract class Cpt extends Base {
 	 * @return void
 	 */
 	protected function register_the_cpt() {
-		$this->setup_cpt_args();
 		add_action( 'init', array( $this, 'add_cpt' ), 100 );
 	}
 

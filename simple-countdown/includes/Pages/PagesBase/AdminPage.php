@@ -157,6 +157,18 @@ abstract class AdminPage extends Base {
 	 * Admin Page Constructor.
 	 */
 	protected function __construct() {
+		if ( is_admin() ) {
+			add_action( 'init', array( $this, 'start_setup' ), 1000 );
+		}
+
+	}
+
+	/**
+	 * Start Setup.
+	 *
+	 * @return void
+	 */
+	public function start_setup() {
 		$this->main_setup();
 		$this->main_hooks();
 	}

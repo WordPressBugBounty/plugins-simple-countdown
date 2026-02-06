@@ -1,10 +1,10 @@
 === Simple Countdown Timer ===
 Tags: countdown, timer, countdown timer, time tracking
-Tested up to: 6.6
+Tested up to: 6.9
 Requires at least: 5.3.0
 Requires PHP: 7.0.0
-Stable Tag: 1.0.3
-Version: 1.0.3
+Stable Tag: 1.0.4
+Version: 1.0.4
 Contributors: grandplugins
 Author: GrandPlugins
 Author URI: https://grandplugins.com
