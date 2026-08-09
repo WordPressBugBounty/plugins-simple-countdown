@@ -8,7 +8,7 @@ namespace GPLSCore\GPLS_PLUGIN_WPSCTR;
  * Author URI:      https://grandplugins.com
  * Text Domain:     simple-countdown
  * Std Name:        gpls-wpsctr-simple-countdown-timer
- * Version:         1.0.4
+ * Version:         1.0.5
  *
  * @package         GPLS_Wpsctr_Simple_countdown_Timer
  */
