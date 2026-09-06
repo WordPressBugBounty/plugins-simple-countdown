@@ -2,13 +2,13 @@
 namespace GPLSCore\GPLS_PLUGIN_WPSCTR;
 
 /**
- * Plugin Name:     Simple Countdown
- * Description:     Create and add simple countdown timers to your WordPress Website.
+ * Plugin Name:     Simple Countdown Timer
+ * Description:     Add a countdown to any page or post for a sale, launch or event.
  * Author:          GrandPlugins
  * Author URI:      https://grandplugins.com
  * Text Domain:     simple-countdown
  * Std Name:        gpls-wpsctr-simple-countdown-timer
- * Version:         1.0.5
+ * Version:         1.0.6
  *
  * @package         GPLS_Wpsctr_Simple_countdown_Timer
  */
@@ -172,6 +172,7 @@ if ( ! class_exists( __NAMESPACE__ . '\GPLS_WPSCTR_Class' ) ) :
 		 */
 		public static function includes() {
 			require_once trailingslashit( plugin_dir_path( __FILE__ ) ) . 'vendor/autoload.php';
+			require_once trailingslashit( plugin_dir_path( __FILE__ ) ) . 'includes/Funnel.php';
 		}
 
 		/**
@@ -203,6 +204,115 @@ if ( ! class_exists( __NAMESPACE__ . '\GPLS_WPSCTR_Class' ) ) :
 			setup_cpts();
 			setup_pages();
 			QuickCountDownTimer::init();
+			self::funnel();
+		}
+
+		/**
+		 * Contextual upgrade prompts.
+		 *
+		 * Both offers are read from the timers this site already has. A
+		 * countdown that finished weeks ago and is still sitting on a page is
+		 * the most common thing that goes wrong with this plugin, and it is
+		 * invisible to the person running the site - they set it once and never
+		 * look again.
+		 *
+		 * @return void
+		 */
+		private static function funnel() {
+			if ( ! class_exists( '\GPLS_Funnel' ) ) {
+				return;
+			}
+
+			$cpt = \GPLSCore\GPLS_PLUGIN_WPSCTR\Cpts\CountDownTimerCPT::_get_cpt_key();
+			$key = self::$plugin_info['name'] . '-countdown-timer-cpt-settings-settings-key';
+
+			/**
+			 * Target times of every published timer, as unix timestamps.
+			 *
+			 * @return array
+			 */
+			$targets = function () use ( $cpt, $key ) {
+				$ids = get_posts(
+					array(
+						'post_type'        => $cpt,
+						'post_status'      => 'publish',
+						'numberposts'      => 200,
+						'fields'           => 'ids',
+						'suppress_filters' => false,
+					)
+				);
+
+				$out = array();
+
+				foreach ( $ids as $id ) {
+					$settings = get_post_meta( $id, $key, true );
+
+					if ( ! is_array( $settings ) || empty( $settings['timer_interval'] ) ) {
+						continue;
+					}
+
+					$ts = strtotime( $settings['timer_interval'] );
+
+					if ( $ts ) {
+						$out[] = $ts;
+					}
+				}
+
+				return $out;
+			};
+
+			\GPLS_Funnel::boot(
+				array(
+					'slug'       => 'simple-countdown',
+					'name'       => 'Simple Countdown Timer',
+					'textdomain' => 'simple-countdown',
+					'cap'        => 'edit_posts',
+					'screens'    => array( 'edit-' . $cpt, $cpt ),
+					// A closure, not an array: these strings are translated when the
+					// notice renders. Building them here would translate during
+					// plugins_loaded, which WordPress 6.7 rightly complains about.
+					'offers'     => function () use ( $targets ) {
+						return array(
+							array(
+								'id'      => 'expired_timers',
+								'product' => 'simple-countdown-timer',
+								'when'    => function () use ( $targets ) {
+									$now  = time();
+									$done = array_filter( $targets(), function ( $ts ) use ( $now ) { return $ts < $now; } );
+
+									if ( ! $done ) {
+										return false;
+									}
+
+									return array(
+										'expired' => count( $done ),
+										'since'   => human_time_diff( max( $done ), $now ),
+									);
+							},
+							'stat'       => '{expired}',
+							'stat_label' => esc_html__( 'finished', 'simple-countdown' ),
+							'title'      => esc_html__( '{expired} of your timers finished, the most recent {since} ago', 'simple-countdown' ),
+							'body'       => esc_html__( 'They are still on the page, sitting at zero. Pro can send visitors somewhere useful the moment a timer ends, or show a sign-up form instead, so a finished countdown stops being a dead end.', 'simple-countdown' ),
+							'cta'        => esc_html__( 'See what Pro does', 'simple-countdown' ),
+						),
+						array(
+							'id'      => 'many_timers',
+							'product' => 'simple-countdown-timer',
+							'when'    => function () use ( $targets ) {
+								$all = $targets();
+
+								return count( $all ) >= 3 ? array( 'timers' => count( $all ) ) : false;
+							},
+							'stat'       => '{timers}',
+							'stat_label' => esc_html__( 'timers', 'simple-countdown' ),
+							'title'      => esc_html__( 'You are running {timers} timers on this site', 'simple-countdown' ),
+							'body'       => esc_html__( 'At that number they rarely all belong in one timezone or one colour scheme. Pro gives each timer its own timezone and its own styling, which matters most when several are running at once.', 'simple-countdown' ),
+							'cta'        => esc_html__( 'See what Pro does', 'simple-countdown' ),
+						),
+						);
+					},
+				)
+			);
 		}
 
 		/**

@@ -1,10 +1,10 @@
-=== Simple Countdown Timer ===
+=== Simple Countdown Timer – Sales, Launch and Event Countdowns ===
 Tags: countdown, timer, countdown timer, time tracking
-Tested up to: 7.0
+Tested up to: 7.1
 Requires at least: 5.3.0
 Requires PHP: 7.0.0
-Stable Tag: 1.0.5
-Version: 1.0.5
+Stable Tag: 1.0.6
+Version: 1.0.6
 Contributors: grandplugins
 Author: GrandPlugins
 Author URI: https://grandplugins.com
@@ -14,87 +14,53 @@ License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 Donate Link: https://www.paypal.com/paypalme/grandplugins
 
+Add a countdown to any page or post for a sale, launch or event. Build one in a click, or customise every part of it.
+
 == Description ==
 
-Simple Countdown Timer Plugin allows you to easily create and customize countdown timers for your website. Whether you're counting down to a sale, event, or launch, our plugin makes it simple to add a countdown timer to any page or post. With a variety of customization options.
+Simple Countdown Timer adds a countdown to any page or post - for a sale that ends on Friday, a product launch, a webinar, or anything else with a deadline.
+
+Build a timer in one click with a target date, or take control of the title, the wording shown when it finishes, and how each segment looks. Place it anywhere with a shortcode.
+
+A deadline people can see is the difference between "this is cheaper" and "this is cheaper until Friday". That is the whole point of the plugin.
 
 == Features ==
-* Quick Countdwon Timers: generate a timer with a single click.
-* Custom Countdown Timers.
-* Timer Title.
-* Timer Titel Tag.
-* Timer Complete Text.
 
-== For more features and more control ==
+* Quick timers - pick a date and get a working countdown in one click.
+* Custom timers - full control over the setup.
+* Timer title, and the heading tag it uses.
+* Custom text shown once the countdown reaches zero.
+* Hide the segments you do not need, such as seconds or days.
+* Adjustable segment width and spacing.
+* Place any timer with a shortcode.
 
-👉 **[Premium](https://grandplugins.com/product/simple-countdown-timer/?utm_source=wp)** | **[Demo](https://demo.grandplugins.com/simple-countdown/timers-demo/)** 👈
+== Pro ==
 
-* Custom Timezone per timer.
-* Redirect URL after timer is completed.
-* Custom Timer colors.
-* Timer subscribe Form.
-* Timer subscription List.
+Pro is for when a finished timer should do something rather than sit at zero, and for sites running more than one countdown at a time.
 
-== Check Our other plugins ==
+**[Get Pro](https://grandplugins.com/product/simple-countdown-timer/?utm_source=free&utm_medium=readme&utm_content=simple-countdown&utm_term=pro)** | **[Live demo](https://demo.grandplugins.com/simple-countdown/timers-demo/)**
 
-[WB DB Controller](https://grandplugins.com/product/wp-db-controller/?utm_source=free&utm_medium=simple-countdown)
+* Redirect visitors somewhere else the moment a timer finishes.
+* Show a sign-up form instead of an expired countdown, and keep the list of who signed up.
+* A timezone per timer, rather than one for the whole site.
+* Custom colours for every part of the timer.
 
-[Woo Conditional Gateways](https://grandplugins.com/product/woo-conditional-gateways/?utm_source=free&utm_medium=simple-countdown)
+== Other Plugins You Might Use Alongside It ==
 
-[Woo Order Splitter](https://grandplugins.com/product/woo-order-splitter/?utm_source=free&utm_medium=simple-countdown)
+[Coming Soon Products](https://grandplugins.com/product/woo-coming-soon-products/?utm_source=free&utm_medium=readme&utm_content=simple-countdown&utm_term=woo-coming-soon-products) &mdash; tease a WooCommerce product before it goes on sale, which is the other half of a launch countdown.
 
-[Woo instock Notifier](https://grandplugins.com/product/woo-instock-notifier/?utm_source=free&utm_medium=simple-countdown)
+[Quick View and Buy Now](https://grandplugins.com/product/quick-view-and-buy-now-for-woocommerce/?utm_source=free&utm_medium=readme&utm_content=simple-countdown&utm_term=quick-view-and-buy-now-for-woocommerce) &mdash; let people buy in one click while the sale is still running.
 
-[Woo Gift Cards](https://grandplugins.com/product/woo-gift-cards/?utm_source=free&utm_medium=simple-countdown)
+[Advanced Pricing](https://grandplugins.com/product/woo-advanced-pricing/?utm_source=free&utm_medium=readme&utm_content=simple-countdown&utm_term=woo-advanced-pricing) &mdash; quantity discounts and price rules to put behind the deadline.
 
-[Woo Restrict Orders](https://grandplugins.com/product/woo-restrict-orders/?utm_source=free&utm_medium=simple-countdown)
+[Browse everything](https://grandplugins.com/product-category/plugin/?utm_source=free&utm_medium=readme&utm_content=simple-countdown&utm_term=browse_all)
 
-[Woo Bulk Price & Stock Manager](https://grandplugins.com/product/woo-bulk-price-change/?utm_source=free&utm_medium=simple-countdown)
+== Changelog ==
 
-[Woo Variation Sold individually](https://grandplugins.com/product/woo-variation-sold-individually/?utm_source=free&utm_medium=simple-countdown)
-
-[Woo Paddle Checkout](https://grandplugins.com/product/woo-paddle-checkout/?utm_source=free&utm_medium=simple-countdown)
-
-[Woo Sales notifications](https://grandplugins.com/product/woo-sales-notification/?utm_source=free&utm_medium=simple-countdown)
-
-[Woo Real time Cart Tracker](https://grandplugins.com/product/woo-cart-tracker/?utm_source=free&utm_medium=simple-countdown)
-
-[Woo Best Sellers](https://grandplugins.com/product/woo-best-seller/?utm_source=free&utm_medium=simple-countdown)
-
-[Advanced Captcha](https://grandplugins.com/product/woo-advanced-captcha/?utm_source=free&utm_medium=simple-countdown)
-
-[WooCommerce Advanced Bundles](https://grandplugins.com/product/woo-advanced-add-to-cart/?utm_source=free&utm_medium=simple-countdown)
-
-[WooCommerce Advanced Pricing - Discounts & Quantity Swatches](https://grandplugins.com/product/woo-advanced-pricing/?utm_source=free&utm_medium=simple-countdown)
-
-[Image Sizes Controller](https://wordpress.org/plugins/image-sizes-controller/)
-
-[WooCommerce Cart Limiter](https://wordpress.org/plugins/cart-limiter/)
-
-[WP Watermark Images](https://wordpress.org/plugins/watermark-images-for-wp-and-woo-grandpluginswp/)
-
-[Coming Soon Products for WooCommerce](https://wordpress.org/plugins/coming-soon-products-for-woocommerce)
-
-[WooCommerce Cart and Order Limiter](https://wordpress.org/plugins/cart-limiter/)
-
-[Watermark PDF](https://wordpress.org/plugins/watermark-pdf/)
-
-[Quick View and Buy Now for WooCommerce](https://wordpress.org/plugins/quick-view-and-buy-now-for-woocommerce/)
-
-[WooCommerce Maintenance Mode](https://wordpress.org/plugins/ultimate-maintenance-mode-for-woocommerce/)
-
-[Sidebars Gutenberg Blocks](https://wordpress.org/plugins/sidebars-blocks/)
-
-[Large Images Uploader](https://wordpress.org/plugins/large-images-uploader/)
-
-[Maintenance Mode for WooCommerce](https://wordpress.org/plugins/ultimate-maintenance-mode-for-woocommerce/)
-
-[Single Ajax Add to Cart For WooCommerce](https://wordpress.org/plugins/ajax-single-add-to-cart-for-woocommerce/)
-
-[GIF Uploader](https://wordpress.org/plugins/gif-uploader-wp-grandplugins)
-
-[PDF Password Protect](https://wordpress.org/plugins/pdf-password-protect/)
-
-[Paypal Subscriptions](https://wordpress.org/plugins/gpls-paypal-subscriptions/)
-
-[WP Plugin Creator](https://wpplugincreator.com)
+= 1.0.6 =
+* Added: a note on the Timers screen when a countdown has already finished and is still on the page.
+* Added: a note when several timers are running at once.
+* Both read your own timers, are dismissible, and stay quiet for a month after you dismiss one.
+* Changed: rewrote the description, added the short description, and fixed typos in the feature list.
+* Changed: the plugins listed at the end are now ones that actually relate to countdowns.
+* Tested up to WordPress 7.1.
